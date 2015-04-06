@@ -7,5 +7,13 @@
 <body>
   <p>p</p>
   <a href="/test.html">test</a>
+  <button onclick="alert('ボタンが押されたa！')">クリック</button>
+  <button id="myButton">クリック</button>
+
+  <script>
+  document.getElementById("myButton").addEventListener("click", function() {
+    alert("ボタンが押されたb！");
+  });
+  </script>
 </body>
 </html>
