@@ -7,12 +7,24 @@
 <body>
   <p>p</p>
   <a href="/test.html">test</a>
+
   <button onclick="alert('ボタンが押されたa！')">クリック</button>
   <button id="myButton">クリック</button>
+
+  <p id="text">このテキストの色を変える</p>
+  <button id="btn">色を変える</button>
+
 
   <script>
   document.getElementById("myButton").addEventListener("click", function() {
     alert("ボタンが押されたb！");
+  });
+
+
+  var btn = document.getElementById("btn");
+  var text = document.getElementById("text");
+  btn.addEventListener("click", () => {
+    text.style.color = "red"; //ここで色を変更
   });
   </script>
 </body>
