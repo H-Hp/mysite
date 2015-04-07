@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>mysite</title>
+
 </head>
 <body>
   <p>p</p>
   <a href="/test.html">test</a>
 
-  <button onclick="alert('ボタンが押されたa！')">クリック</button>
-  <button id="myButton">クリック</button>
+  <button onclick="alert('ボタンが押されたa！')">アラートボタン(インライン)</button>
+  <button id="myButton">アラートボタン(scriptタグ)</button>
 
   <p id="text">このテキストの色を変える</p>
   <button id="btn">色を変える</button>
@@ -27,5 +28,10 @@
     text.style.color = "red"; //ここで色を変更
   });
   </script>
+
+  <!-- 外部JSファイルを読み込んで処理 -->
+  <h1 id="title">こんにちは！</h1>
+  <button id="changeSizeBtn">文字サイズを変更</button>
+  <script src="index.js"></script>
 </body>
 </html>
