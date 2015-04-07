@@ -51,5 +51,58 @@
   <link rel="stylesheet" href="style.css">
   <div class="box">外部CSSで装飾</div>
 
+  <!-- いろんなセレクタで装飾 -->
+      <!-- タグセレクタ -->
+      <h1>タグセレクタで装飾</h1>
+
+      <!-- クラスセレクタ -->
+      <p class="highlight">クラスセレクタで装飾</p>
+
+      <!-- IDセレクタ -->
+      <div id="main-box">IDセレクタで装飾</div>
+
+      <!-- 子孫セレクタ -->
+      <div class="container">
+        <p>子孫セレクタの例（container内のp）</p>
+      </div>
+
+      <!-- 擬似クラス -->
+      <a href="#">擬似クラス（hover）で装飾</a>
+      <style>
+      /* タグセレクタ */
+      h1 {
+        color: navy;
+        text-align: center;
+        border-bottom: 2px solid gray;
+      }
+
+      /* クラスセレクタ */
+      .highlight {
+        color: white;
+        background-color: tomato;
+        padding: 8px;
+        border-radius: 4px;
+      }
+
+      /* IDセレクタ */
+      #main-box {
+        width: 200px;
+        height: 100px;
+        background-color: lightgreen;
+        margin: 10px 0;
+      }
+
+      /* 子孫セレクタ */
+      .container p {
+        color: purple;
+        font-style: italic;
+      }
+
+      /* 擬似クラス（hover） */
+      a:hover {
+        color: orange;
+        text-decoration: underline;
+      }
+      </style>
 </body>
 </html>
