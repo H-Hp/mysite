@@ -1,0 +1,7 @@
+.box {
+  width: 200px;          /* 幅200px */
+  height: 100px;         /* 高さ100px */
+  background-color: skyblue; /* 背景色を水色 */
+  border-radius: 8px;
+  font-size: 16px;
+}
