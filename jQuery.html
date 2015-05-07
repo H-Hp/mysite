@@ -20,5 +20,28 @@
       });
     });
   </script>
+
+
+<!--showとhideここから-->
+  <button id="toggleBtn">showとhide</button>
+  <div id="box">Hello jQuery!</div>
+  <script>
+    // ボタンがクリックされたときに実行
+    $('#toggleBtn').click(function() {
+      // #boxを表示・非表示を切り替える
+      $('#box').toggle(); 
+    });
+  </script>
+  <style>
+    #box {
+      width: 200px;
+      height: 100px;
+      background-color: lightblue;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+<!--showとhideここまで-->
+
 </body>
 </html>
