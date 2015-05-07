@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>jQueryテストす</title>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+  <h1 id="message">メッセージ</h1>
+  <button id="say-hello">Helloを表示</button>
+
+  <script>
+    // DOM が読み込まれたら実行
+    $(function() {
+      $('#message').text('Hello World');
+
+      // ボタンを押したときに別のメッセージを表示
+      $('#say-hello').on('click', function() {
+        alert('Hello World');
+      });
+    });
+  </script>
+</body>
+</html>
