@@ -43,5 +43,96 @@
   </style>
 <!--showとhideここまで-->
 
+
+
+
+
+<!--formここから-->
+  <h2>お問い合わせフォーム</h2>
+  <form id="contactForm">
+    <label>お名前 <span style="color:red;">*</span>
+      <input type="text" name="name" id="name">
+      <div class="error" id="error-name"></div>
+    </label>
+
+    <label>メールアドレス <span style="color:red;">*</span>
+      <input type="text" name="email" id="email">
+      <div class="error" id="error-email"></div>
+    </label>
+
+    <label>内容
+      <textarea name="form-message" id="form-message" rows="4"></textarea>
+      <div class="error" id="error-message"></div>
+    </label>
+
+    <button type="submit">送信</button>
+  </form>
+
+  <div class="success" id="success-message"></div>
+
+  <script>
+    $(function() {
+      $('#contactForm').submit(function(event) {
+        event.preventDefault(); // フォーム送信を止める
+
+        // エラーメッセージをクリア
+        $('.error').text('');
+        $('#success-message').text('');
+
+        // 入力値取得
+        var name = $('#name').val().trim();
+        var email = $('#email').val().trim();
+        var message = $('#form-message').val().trim();
+        var isValid = true;
+
+        // 名前チェック
+        if (name === '') {
+          $('#error-name').text('お名前を入力してください');
+          isValid = false;
+        }
+
+        // メールチェック
+        if (email === '') {
+          $('#error-email').text('メールアドレスを入力してください');
+          isValid = false;
+        } else if (!email.match(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)) {
+          $('#error-email').text('メールアドレスの形式が正しくありません');
+          isValid = false;
+        }
+
+        // 内容チェック
+        if (message === '') {
+          $('#error-message').text('内容を入力してください');
+          isValid = false;
+        }
+
+        // 全てOKなら送信
+        if (isValid) {
+          $('#success-message').text('送信が完了しました！');
+          $('#contactForm')[0].reset(); // フォームをリセット
+        }
+      });
+    });
+  </script>
+  <style>
+    body { font-family: sans-serif; padding: 30px; }
+    label { display: block; margin-top: 15px; }
+    input, textarea, select {
+      width: 300px;
+      padding: 5px;
+      margin-top: 5px;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 3px;
+    }
+    .success {
+      color: green;
+      margin-top: 15px;
+    }
+  </style>
+<!--formここまで-->
+
 </body>
 </html>
