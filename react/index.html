@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <title>Reactサンプル</title>
+  <script src="https://unpkg.com/react@15.0.0/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15.0.0/dist/react-dom.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script>
+    var Hello = React.createClass({
+      getInitialState: function() {
+        return { count: 0 };
+      },
+      handleClick: function() {
+        this.setState({ count: this.state.count + 1 });
+      },
+      render: function() {
+        return React.createElement('div', null,
+          React.createElement('h1', null, 'Hello React'),
+          React.createElement('p', null, 'カウント ' + this.state.count),
+          React.createElement('button', { onClick: this.handleClick }, 'インクリ')
+        );
+      }
+    });
+
+    ReactDOM.render(React.createElement(Hello), document.getElementById('root'));
+  </script>
+</body>
+</html>
