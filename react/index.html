@@ -5,10 +5,19 @@
   <title>Reactサンプル</title>
   <script src="https://unpkg.com/react@15.0.0/dist/react.min.js"></script>
   <script src="https://unpkg.com/react-dom@15.0.0/dist/react-dom.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 <body>
   <div id="root"></div>
 
+    <script type="text/babel">
+    ReactDOM.render(
+      <h1>Hello JSX!</h1>,
+      document.getElementById('root')
+    );
+  </script>
+
+  <!--
   <script>
     var Hello = React.createClass({
       getInitialState: function() {
@@ -28,5 +37,6 @@
 
     ReactDOM.render(React.createElement(Hello), document.getElementById('root'));
   </script>
+  -->
 </body>
 </html>
