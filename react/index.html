@@ -10,33 +10,17 @@
 <body>
   <div id="root"></div>
 
-    <script type="text/babel">
-    ReactDOM.render(
-      <h1>Hello JSX!</h1>,
-      document.getElementById('root')
-    );
-  </script>
-
-  <!--
-  <script>
-    var Hello = React.createClass({
-      getInitialState: function() {
-        return { count: 0 };
-      },
-      handleClick: function() {
-        this.setState({ count: this.state.count + 1 });
-      },
+  <script type="text/babel">
+    var HelloMessage = React.createClass({
       render: function() {
-        return React.createElement('div', null,
-          React.createElement('h1', null, 'Hello React'),
-          React.createElement('p', null, 'カウント ' + this.state.count),
-          React.createElement('button', { onClick: this.handleClick }, 'インクリ')
-        );
+        return <h1>Hello {this.props.name}!</h1>;
       }
     });
 
-    ReactDOM.render(React.createElement(Hello), document.getElementById('root'));
+    ReactDOM.render(
+      <HelloMessage name="World" />,
+      document.getElementById('root')
+    );
   </script>
-  -->
 </body>
 </html>
