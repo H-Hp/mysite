@@ -37,9 +37,17 @@
       }
     });
 
+    //class構文でのコンポーネント
+    class Greeting extends React.Component {
+      render() {
+        return <h2>Hello {this.props.name}!</h2>;
+      }
+    }
+
     ReactDOM.render(
       //<HelloMessage name="World" />,
-      <Counter />,
+      //<Counter />,
+      <Greeting name="World" />,
       document.getElementById('root')
     );
   </script>
