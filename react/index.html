@@ -11,14 +11,35 @@
   <div id="root"></div>
 
   <script type="text/babel">
+    //コンポーネント1
     var HelloMessage = React.createClass({
       render: function() {
         return <h1>Hello {this.props.name}!</h1>;
       }
     });
 
+
+    //state使うコンポーネント
+    var Counter = React.createClass({
+      getInitialState: function() {
+        return { count: 0 };
+      },
+      handleClick: function() {
+        this.setState({ count: this.state.count + 1 });
+      },
+      render: function() {
+        return (
+          <div>
+            <p>カウント {this.state.count}</p>
+            <button onClick={this.handleClick}>+1</button>
+          </div>
+        );
+      }
+    });
+
     ReactDOM.render(
-      <HelloMessage name="World" />,
+      //<HelloMessage name="World" />,
+      <Counter />,
       document.getElementById('root')
     );
   </script>
