@@ -44,10 +44,33 @@
       }
     }
 
+
+    //複数コンポーネントの構成
+    class Header extends React.Component {
+      render() { return <h1>{this.props.title}</h1>; }
+    }
+
+    class Footer extends React.Component {
+      render() { return <p>© React Sample</p>; }
+    }
+
+    class App extends React.Component {
+      render() {
+        return (
+          <div>
+            <Header title="テスト" />
+            <p>へろー</p>
+            <Footer />
+          </div>
+        );
+      }
+    }
+
     ReactDOM.render(
       //<HelloMessage name="World" />,
       //<Counter />,
-      <Greeting name="World" />,
+      //<Greeting name="World" />,
+      <App />,
       document.getElementById('root')
     );
   </script>
