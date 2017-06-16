@@ -66,11 +66,35 @@
       }
     }
 
+    //Form
+    var FormExample = React.createClass({
+      getInitialState: function() {
+        return { value: '' };
+      },
+      handleChange: function(e) {
+        this.setState({ value: e.target.value });
+      },
+      handleSubmit: function(e) {
+        e.preventDefault();
+        alert('入力された名前: ' + this.state.value);
+      },
+      render: function() {
+        return (
+          <form onSubmit={this.handleSubmit}>
+            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            <button type="submit">送信</button>
+          </form>
+        );
+      }
+    });
+
+    
     ReactDOM.render(
       //<HelloMessage name="World" />,
       //<Counter />,
       //<Greeting name="World" />,
-      <App />,
+      //<App />,
+      <FormExample />,
       document.getElementById('root')
     );
   </script>
