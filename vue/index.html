@@ -9,13 +9,23 @@
   <div id="app">
     <input v-model="message" placeholder="入力">
     <p>入力内容: {{ message }}</p>
+
+    <button @click="show = !show">
+      {{ show ? 'リストを隠す' : 'リストを表示' }}
+    </button>
+
+    <ul v-if="show">
+      <li v-for="item in items">{{ item }}</li>
+    </ul>
   </div>
 
   <script>
     var app = new Vue({
       el: '#app',
       data: {
-        message: ''
+        message: '',
+        show: true,
+        items: ['りんご', 'みかん', 'バナナ']
       }
     });
   </script>
