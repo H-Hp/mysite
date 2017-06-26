@@ -17,6 +17,11 @@
     <ul v-if="show">
       <li v-for="item in items">{{ item }}</li>
     </ul>
+
+
+    <p>カウント: {{ count }}</p>
+    <button @click="increment">＋1</button>
+    <button @click="reset">リセット</button>
   </div>
 
   <script>
@@ -25,7 +30,16 @@
       data: {
         message: '',
         show: true,
-        items: ['りんご', 'みかん', 'バナナ']
+        items: ['りんご', 'みかん', 'バナナ'],
+        count: 0
+      },
+      methods: {
+        increment: function() {
+          this.count++;
+        },
+        reset: function() {
+          this.count = 0;
+        }
       }
     });
   </script>
