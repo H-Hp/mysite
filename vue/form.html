@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Form</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.0.0/dist/vue.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>お問い合わせフォーム</h1>
+    <contact-form></contact-form>
+  </div>
+
+  <script>
+    // コンポーネント定義
+    Vue.component('contact-form', {
+      template: `
+        <form @submit.prevent="submitForm">
+          <p><input v-model="name" placeholder="お名前"></p>
+          <p><input v-model="email" placeholder="メールアドレス"></p>
+          <p><textarea v-model="message" placeholder="内容"></textarea></p>
+          <p><button type="submit">送信</button></p>
+          <p v-if="submitted">送信ありがとうございました。</p>
+        </form>
+      `,
+      data: function() {
+        return {
+          name: '',
+          email: '',
+          message: '',
+          submitted: false
+        };
+      },
+      methods: {
+        submitForm: function() {
+          if (this.name && this.email && this.message) {
+            this.submitted = true;
+          } else {
+            alert('全ての項目を入力してください。');
+          }
+        }
+      }
+    });
+
+    new Vue({
+      el: '#app'
+    });
+  </script>
+</body>
+</html>
