@@ -7,14 +7,15 @@
 </head>
 <body>
   <div id="app">
-    {{ message }}
+    <input v-model="message" placeholder="入力">
+    <p>入力内容: {{ message }}</p>
   </div>
 
   <script>
     var app = new Vue({
       el: '#app',
       data: {
-        message: 'Hello Vue'
+        message: ''
       }
     });
   </script>
