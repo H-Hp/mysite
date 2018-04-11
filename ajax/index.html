@@ -6,15 +6,27 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
+
   <h1>AJAX通信サンプル</h1>
   <button id="loadBtn">データを取得</button>
   <div id="result"></div>
 
   <script>
     $(function() {
-      // ボタンが押された時のイベント
       $('#loadBtn').click(function() {
-        alert('ボタンが押されました');
+        $.ajax({
+          url: 'server.php',     // PHPファイルのURL
+          type: 'GET',           // 送信方法
+          dataType: 'json',      // 期待するデータ形式
+          success: function(response) {
+            // 成功時の処理
+            $('#result').html(response.message);
+          },
+          error: function() {
+            // エラー時の処理
+            $('#result').html('データ取得に失敗しました。');
+          }
+        });
       });
     });
   </script>
