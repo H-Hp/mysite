@@ -1,11 +1,14 @@
 <?php
-// PHP側で配列データを用意
-$data = array(
+// POSTデータを取得
+$name = isset($_POST['name']) ? $_POST['name'] : '名無し';
+
+// レスポンスデータを作成
+$response = array(
   "status" => "success",
-  "message" => "こんにちは！PHPサーバーからのデータです。"
+  "message" => $name . " さん、こんにちは！PHPサーバーからの応答です。"
 );
 
-// JSONに変換して出力
+// JSON形式で出力
 header('Content-Type: application/json; charset=UTF-8');
-echo json_encode($data);
+echo json_encode($response);
 ?>

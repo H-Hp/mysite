@@ -7,24 +7,29 @@
 </head>
 <body>
 
-  <h1>AJAX通信サンプル</h1>
-  <button id="loadBtn">データを取得</button>
+  <h1>AJAX通信（POST送信）</h1>
+
+  <p>名前を入力してください：</p>
+  <input type="text" id="name" placeholder="お名前">
+  <button id="sendBtn">送信</button>
+
   <div id="result"></div>
 
   <script>
     $(function() {
-      $('#loadBtn').click(function() {
+      $('#sendBtn').click(function() {
+        var nameValue = $('#name').val();
+
         $.ajax({
-          url: 'server.php',     // PHPファイルのURL
-          type: 'GET',           // 送信方法
-          dataType: 'json',      // 期待するデータ形式
+          url: 'server.php',
+          type: 'POST',
+          dataType: 'json',
+          data: { name: nameValue }, // サーバに送るデータ
           success: function(response) {
-            // 成功時の処理
-            $('#result').html(response.message);
+            $('#result').html('<p>' + response.message + '</p>');
           },
           error: function() {
-            // エラー時の処理
-            $('#result').html('データ取得に失敗しました。');
+            $('#result').html('<p>通信エラーが発生しました。</p>');
           }
         });
       });
