@@ -7,14 +7,38 @@
 <body>
   <h1>クイズアプリ</h1>
   <div id="quiz-container">
-    <p id="question">問題</p>
-    <div id="choices">選択肢</div>
+    <p id="question"></p>
+    <div id="choices"></div>
     <button id="next-btn">次へ</button>
   </div>
 
   <script>
-    document.getElementById('question').innerHTML = '日本の首都はどこ？';
-    document.getElementById('choices').innerHTML = '<button>東京</button><button>大阪</button>';
+    // クイズデータ
+    var quizData = [
+      { question: '日本の首都はどこ？', choices: ['東京', '大阪', '名古屋'], correct: 0 },
+      { question: '1+1は？', choices: ['1', '2', '3'], correct: 1 },
+      { question: '犬は英語で？', choices: ['cat', 'dog', 'bird'], correct: 1 }
+    ];
+
+    var current = 0;
+
+    // クイズ表示関数
+    function showQuiz() {
+      var q = quizData[current];
+      document.getElementById('question').innerHTML = q.question;
+
+      var html = '';
+      for (var i = 0; i < q.choices.length; i++) {
+        html += '<button onclick="checkAnswer(' + i + ')">' + q.choices[i] + '</button>';
+      }
+      document.getElementById('choices').innerHTML = html;
+    }
+
+    function checkAnswer(i) {
+      alert('選択肢 ' + i + ' が選ばれました');
+    }
+
+    showQuiz();
   </script>
 </body>
 </html>
