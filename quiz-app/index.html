@@ -13,7 +13,6 @@
   </div>
 
   <script>
-    // クイズデータ
     var quizData = [
       { question: '日本の首都はどこ？', choices: ['東京', '大阪', '名古屋'], correct: 0 },
       { question: '1+1は？', choices: ['1', '2', '3'], correct: 1 },
@@ -21,8 +20,8 @@
     ];
 
     var current = 0;
+    var score = 0;
 
-    // クイズ表示関数
     function showQuiz() {
       var q = quizData[current];
       document.getElementById('question').innerHTML = q.question;
@@ -35,8 +34,23 @@
     }
 
     function checkAnswer(i) {
-      alert('選択肢 ' + i + ' が選ばれました');
+      var q = quizData[current];
+      if (i === q.correct) {
+        alert('正解！');
+        score++;
+      } else {
+        alert('不正解...');
+      }
     }
+
+    document.getElementById('next-btn').onclick = function() {
+      current++;
+      if (current < quizData.length) {
+        showQuiz();
+      } else {
+        alert('終了！スコア：' + score + '/' + quizData.length);
+      }
+    };
 
     showQuiz();
   </script>
