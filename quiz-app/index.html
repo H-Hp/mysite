@@ -10,6 +10,7 @@
     <p id="question"></p>
     <div id="choices"></div>
     <button id="next-btn">次へ</button>
+    <p id="history"></p>
   </div>
 
   <script>
@@ -36,10 +37,7 @@
     function checkAnswer(i) {
       var q = quizData[current];
       if (i === q.correct) {
-        alert('正解！');
         score++;
-      } else {
-        alert('不正解...');
       }
     }
 
@@ -48,10 +46,20 @@
       if (current < quizData.length) {
         showQuiz();
       } else {
+        localStorage.setItem('lastScore', score);
         alert('終了！スコア：' + score + '/' + quizData.length);
+        showHistory();
       }
     };
 
+    function showHistory() {
+      var last = localStorage.getItem('lastScore');
+      if (last !== null) {
+        document.getElementById('history').innerHTML = '前回のスコア：' + last;
+      }
+    }
+
+    showHistory();
     showQuiz();
   </script>
 </body>
