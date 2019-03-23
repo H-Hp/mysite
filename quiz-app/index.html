@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>クイズアプリ</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    button { margin: 5px; padding: 8px 15px; }
+  </style>
 </head>
 <body>
   <h1>クイズアプリ</h1>
@@ -25,7 +29,7 @@
 
     function showQuiz() {
       var q = quizData[current];
-      document.getElementById('question').innerHTML = q.question;
+      document.getElementById('question').innerHTML = (current+1) + '. ' + q.question;
 
       var html = '';
       for (var i = 0; i < q.choices.length; i++) {
@@ -39,6 +43,7 @@
       if (i === q.correct) {
         score++;
       }
+      document.getElementById('choices').innerHTML = '回答済み';
     }
 
     document.getElementById('next-btn').onclick = function() {
@@ -48,6 +53,11 @@
       } else {
         localStorage.setItem('lastScore', score);
         alert('終了！スコア：' + score + '/' + quizData.length);
+        if (confirm('もう一度挑戦しますか？')) {
+          current = 0;
+          score = 0;
+          showQuiz();
+        }
         showHistory();
       }
     };
